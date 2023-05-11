@@ -9,11 +9,13 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@sentry/react-native": "^5.4.2",
     "expo": "~48.0.15",
     "expo-splash-screen": "~0.18.2",
     "expo-status-bar": "~1.4.4",
     "react": "18.2.0",
-    "react-native": "0.71.7"
+    "react-native": "0.71.7",
+    "sentry-expo": "github:jongbelegen/sentry-expo#fix/update-sentry-android-support"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
