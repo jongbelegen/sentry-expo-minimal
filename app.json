@@ -5,6 +5,17 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "sentry-expo/upload-sourcemaps",
+          "config": {
+            "organization": "fastlane-festivals",
+            "project": "sentry-expo-minimal"
+          }
+        }
+      ]
+    }
   }
 }
