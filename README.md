@@ -12,10 +12,12 @@
 ## Steps to reproduce
 1. Install packages `$ npm install`
 2. Make release build for ios and run on simulator `$ npx expo run:ios --configuration Release`
-   - Local will do it on your local machine, if this gives errors you can also use the expo service to build it. `$ eas build`
+   - if this gives errors you can also use the expo service to build it. `$ eas build -p ios`
 3. Make release build for android `$ eas build --local -p android`
    - This will ask you to automatically setup an EAS project, choose yes and follow the steps on default.
    - It will create an .aab file, you can transform this to an apk and install on a simulator with `$ bundletool build-apks --bundle=app.aab --output=app.apks` and `$ bundletool install-apks --apks=app.apks`
+
+Everything is also prebuild, so you can also run the provided apps in the files folder on the simulator.
 
 ## Expected result
 Seeing errors without sourcemaps problems.
@@ -70,7 +72,5 @@ In here you can already inspect the end result what is gonna be build.
 It seems to match with the documentation and the plugin is basically defined how its being done in Sentry wizard.
 
 My hunch is that the new version might not work as much with how expo is rewriting frames?
-The logic can be expected here https://github.com/jongbelegen/sentry-expo/tree/fix/update-sentry-android-support.
+The sentry-expo plugin being used can be found here https://github.com/jongbelegen/sentry-expo/tree/fix/update-sentry-android-support.
 I have an idea that I know the internals of expo config and how its being build quit well, so if i can be of any more assistance, maybe through a videocall let me know!
-
-I placed all generated files, apps and sourcemaps in the files folder.
