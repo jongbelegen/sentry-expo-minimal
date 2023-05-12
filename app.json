@@ -6,6 +6,9 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "plugins": [
+      "sentry-expo"
+    ],
     "hooks": {
       "postPublish": [
         {

@@ -1,0 +1,16 @@
+{
+  "cli": {
+    "version": ">= 3.9.2"
+  },
+  "build": {
+    "production": {
+      "ios": {
+        "resourceClass": "m-medium",
+        "simulator": true
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}

@@ -1,20 +1,33 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import * as Sentry from "sentry-expo";
+import { Button, StyleSheet, Text, View } from "react-native";
+import { init, Native as Sentry } from "sentry-expo";
 
-Sentry.init({
+init({
   dsn: "https://7299b45869854e44be478ad0fdfe6c43@o1366760.ingest.sentry.io/4505164525535232",
   enableInExpoDevelopment: true,
-  debug: true,
 });
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Sentry.ErrorBoundary fallback={<Text>Crashed!</Text>}>
+      <View style={styles.container}>
+        <Button
+          title={"Crash"}
+          onPress={() => {
+            throw new Error("Test Error");
+          }}
+        />
+        <Button
+          title={"Native Crash"}
+          onPress={() => {
+            Sentry.nativeCrash();
+          }}
+        />
+        <Text>Open up App.js to start working on your app!</Text>
+        <StatusBar style="auto" />
+      </View>
+    </Sentry.ErrorBoundary>
   );
 }
 
